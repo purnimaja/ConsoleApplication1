@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    Enter No. to Add: <input id="txtno" /><br>
+
+    <input type="button" value="add" onclick="addno();" />
+    <input type="button" value="show list" id="showlist" />
+
+    <input type="button" value="search" id="search" onclick="search();" />
+    <input type="button" value="remove" id="remove" onclick="remove()"/>
+    
+    <hr />
+    <div id="dout">
+
+    </div>
+    <script type="text/javascript">
+            var noslist = [];
+            var b = document.getElementById("showlist");
+            b.addEventListener("click", function (evt) {
+
+                var str = "<ul>"
+                for(i=0;i<noslist.length;i++)
+                {
+                    str += "<li>" + noslist[i];
+                    str += "<ui>";
+                    document.getElementById("dout").innerHTML=str;
+                }
+
+            });
+
+
+            function addno()
+            {
+                var t = document.getElementById("txtno");
+                if(t.value.length == 0 || isNaN(t.value))
+                {
+                    alert("please give correct input");
+                    return;
+                }
+
+                for (i = 0; i < noslist.length; i++) {
+                    if (t.value == noslist[i]) {
+                        alert("no. is already present");
+                    }
+                }
+
+
+
+
+
+                noslist.push(t.value);
+                t.value = "";
+                t.focus();
+
+            }
+
+            function search()
+            {
+               var t=document.getElementById("txtno").value;
+                for(i=0;i<noslist.length;i++)
+                {
+
+                        if(t==noslist[i])
+                        {
+                            alert("no. is found at position:" +i);
+                        }
+                }
+
+            }
+
+
+            function remove()
+            {
+                var t = document.getElementById("txtno").value;
+                for(i=0;i<noslist.length;i++)
+                {
+
+                    if(t==noslist[i])
+                    {
+                        noslist.splice(i,1);
+                    }
+                }
+
+            }
+            
+
+    </script>
+
+</body>
+</html>

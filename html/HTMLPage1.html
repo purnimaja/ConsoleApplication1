@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        var x = 100;
+        window.alert(x);
+        x = "hello";
+        window.alert(x);
+        var arr1 = new Array("anil", "sunil", "sanil", "kunal");
+        var arr2 = ["anil", "sunil", "sanil", "kunal"]
+        for (i = 0; i < arr1.length; i++)
+            console.log(arr1[i]);
+
+
+        j = arr2.length-1;
+       // j = 3;
+        while (j >= 0)
+        {
+            console.log(arr2[j]);
+            j--;
+        }
+
+        var nos = [32, 5, 43, 54, 51, 4, 34, 15, 12, 34, 5, 32, 39];
+
+
+            var total = 0;
+            for (i = 0; i < nos.length; i++) {
+
+                total = total + nos[i];
+
+
+            } console.log("total", total);
+
+
+        function IsPrime(num)
+        {
+            var flag = true;
+            var j = 2;
+            if (num == 2)
+                return flag;
+            while(j<num)
+            {
+                if(num % j == 0)
+                {
+                    flag = false;
+                    break;
+                }
+                j++;
+            }
+            return flag;
+        }
+
+        var ptot = 0;
+        for(i=0;i<nos.length;i++)
+        {
+            if (IsPrime(nos[i]))
+                ptot += nos[i];
+        }
+
+        //search  the number in array 
+
+        function find(nos,j)
+        {
+           // var flag = true;
+            for(i=0;i<nos.length;i++)
+            {
+               
+                if(nos[i]==j)
+                { 
+                    return i;
+                }
+                
+            }
+           
+                return -1;
+            
+        }
+
+        var k = find(nos,54)
+        console.log(k);
+
+        //every javascript object has property call length
+
+        var arr1 = [1, 2, 3,22,10];
+        var arr2 = [10, 20, 30, 22,2];
+
+        function countcommon(nos1,nos2)
+        {
+            count = 0;
+            for(i=0;i<arr1.length;i++)
+            {
+                for(j=0;j<arr2.length;j++)
+                {
+                    if(arr1[i]==arr2[j])
+                    {
+                        count++;
+                    }
+                }
+            }
+            console.log(count);
+
+        }
+
+        var res = countcommon(arr1, arr2);
+
+
+
+        //sum of common number
+        function sumcommon(nos1, nos2) {
+            count = 0;
+            for (i = 0; i < arr1.length; i++) {
+                for (j = 0; j < arr2.length; j++) {
+                    if (arr1[i] == arr2[j])
+                    {
+                        count+=arr2[j];
+                    }
+                }
+            }
+            console.log(count);
+
+        }
+
+        var res = sumcommon(arr1, arr2);
+
+        //get commom
+
+        function getcommon(arr1, arr2) {
+            count = 0;
+            var temp=[];
+            for (i = 0; i < arr1.length; i++) {
+                for (j = 0; j < arr2.length; j++) {
+                    if (arr1[i] == arr2[j])
+                    {
+                        
+                           
+                            temp.push(arr1[i]);
+                        
+                    }
+                }
+            }
+            return temp;
+
+        }
+
+                var res = getcommon(arr1, arr2);
+        for (i = 0; i < arr1.length; i++) {
+            console.log(res[i]);
+        }
+
+
+//union
+        //function unioncommon(nos1, nos2) {
+        //    count = 0;
+        //    var temp=[];
+        //    for (i = 0; i < arr1.length; i++)
+        //    {
+
+        //        temp.push(arr1[i]);
+        //    }
+        //    for (j = 0; j < arr2.length; j++) 
+        //    {
+        //            if (arr1[i] == arr2[j])
+        //            {
+        //                count++;
+        //            }
+        //        }
+        //    }
+        //if (count=)
+
+        //    console.log(count);
+
+        //}
+
+        //var res = unioncommon(arr1, arr2);
+        function countcommon3(nos1, nos2) {
+
+            var temp1 = [];
+
+            var count = 0;
+            for (i = 0; i < nos2.length; i++) {
+                temp1.push(nos2[i]);
+            }
+
+            for (j = 0; j < nos1.length; j++) {
+                for (i = 0; i < nos2.length; i++) {
+
+                    if (nos2[i] != nos1[j]) {
+                        console.log("not");
+
+                        temp1.push(nos1[j]);
+                    }
+                }
+
+                return temp1;
+            }
+        }
+        var arr2 = countcommon3(arr1, arr2);
+        for (i = 0; i < arr2.length; i++) {
+            console.log(arr2[i]);
+        }
+
+
+    </script>
+</body>
+</html>

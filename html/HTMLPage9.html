@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <script>
+
+        function chk()
+        {
+            var dv = document.getElementById("errdiv");
+            var t = document.getElementById("txtname");
+            var c1 = document.getElementById("hl7");
+            var c2 = document.getElementById("sql");
+
+
+            dv.innerHTML = " ";
+            var flag = true;
+            if(t.value.trim().length==0)
+            {
+                dv.innerHTML += "<li>name cannot be empty";
+                flag = false;
+            }
+            if(c1.checked==false && c2.checked==false)
+            {
+                dv.innerHTML += "select atleast one skill";
+                flag = false;
+            }
+            if(flag==true)
+            alert("data submitted");
+            return flag;
+        
+        }
+    </script>
+    <div id="errdiv" style="color:red;font-weight:bold">
+
+    </div>
+    <form action="process.jsp" method="post" onsubmit="return chk();">
+        name:<input nam="tname " id=txtname /><br/>
+        skills:<input id=hl7 type="checkbox"/>hl7 &nbsp;&nbsp;<input type="checkbox"id=sql />sql <br/>
+        city:
+        <select id=dncity>
+       
+        <option>mumbai</option>
+        <option>pune</option>
+        <option>bangalore</option>
+        
+        </select>
+        <br/>
+        <input type="submit" value="go"/>
+
+
+        
+    </form>
+</body>
+</html>

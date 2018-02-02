@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        var count = 0;
+        function adddata()
+        {
+            var n = document.getElementById("txtname");
+            var c = document.getElementById("ctname");
+            var m = document.getElementById("mbno");
+            count++;
+            var t = document.createElement("td");
+
+            t.innerHTML = count;
+            var t1 = document.createElement("td");
+           
+            
+             t1.innerHTML = n.value;
+            var t2= document.createElement("td");
+            t2.innerHTML = c.value;
+            var t3 = document.createElement("td");
+            t3.innerHTML = m.value;
+
+            var tr = document.createElement("tr");
+            tr.appendChild(t);
+            tr.appendChild(t1);
+            tr.appendChild(t2);
+            tr.appendChild(t3);
+
+            var tab = document.getElementById("newtb");
+            tab.appendChild(tr);
+
+            
+
+        }
+
+    </script>
+    
+        Name:<input id="txtname">
+        city:
+        <select id="ctname">
+            <option>---select----
+            <option>mumbai
+            <option>Pune
+            <option>Banglore
+        </select>
+        Mobile no:<input id="mbno">
+
+        <input type="submit" value="Add" onclick="adddata()"/>
+
+        <table id="newtb" border="1">
+            <tr>
+                <td>Sr No</td>
+                <td>Name</td>
+                <td>City</td>
+                <td>Mobile No</td>
+            </tr>
+        </table>
+
+
+</body>
+</html>

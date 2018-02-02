@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <style>
+        .hdtbl{
+
+                visibility:hidden;
+                border:2px;
+                border-color:darkblue;
+                border-style:groove;
+                color:darkgreen;
+        }
+    </style>
+    <img id=im width=300 height=300 /><br>
+
+    Fruits to add:<input id="txtfr"><br>
+    <select id="dnfruits"><br>
+        </select>
+    <input type="button" value="add" onclick="addfr();"/>
+    <table>
+        <tr>
+        <td onmouseover="togglecitylist(true)" onmouseout="togglecitylist(false)">
+            Cities
+            <tr>
+            <td>
+                <table id="citylist" class="hdtbl" border=1>
+                <tr>
+                <td>
+                          Mumbai
+                <tr>
+                <td>
+                            Pune
+                <tr>
+                <td>
+                        Banglore
+                   <tr>
+                    <td>
+                        Delhi
+                    </table>
+
+               
+
+                <script type="text/javascript">
+
+                    function addfr()
+                    {
+                        var t = document.getElementById("txtfr");
+
+                        var s = document.getElementById("dnfruits");
+                        var op = document.createElement("option");
+                        op.innerHTML = t.value;
+                        s.appendChild(op);
+                    }
+
+
+                    var images = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
+                    var index = 0;
+                    function changeimage()
+                    {
+                        var im = document.getElementById("im");
+                        im.src = images[index];
+                        index++;
+                        if (index == 4)
+                            index = 0;
+                    }
+                    setInterval(changeimage, 3000);
+                    function togglecitylist(prm)
+                    {
+                        console.log(prm);
+                        var tbl = document.getElementById("citylist");
+                        if (prm)
+                            tbl.style.visibility = 'visible';
+                        else
+                            tbl.style.visibility = 'hidden';
+                    }
+                </script>
+                    
+
+    </table>
+</body>

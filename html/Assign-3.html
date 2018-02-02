@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+             <form action="a.jsp" method="post">
+                 
+                 Name:<input type="text" name="name" id="txt">&nbsp;&nbsp;
+
+                 City:
+                 <select id="dncity">
+                     <option>-----select-----</option>
+                     <option>Mumbai</option>
+                     <option>Pune</option>
+                     <option>Banglore</option>
+                 </select>&nbsp;&nbsp;
+                 Mobile No:<input type="text" name="name" id="m"><br>
+
+                 <input type="button" value="Add Row" id="n" onclick="addrow();">
+
+                 <table border="1" id="tbl">
+                     <tr>
+                         
+                         <td>Name</td>
+                         <td>City</td>
+                         <td>Mobile No:</td>
+                    </tr>
+                 </table>
+             </form> 
+    
+     
+        <script type="text/javascript">
+
+           
+            function addrow() {
+                var t = document.getElementById("txt");
+                var  c = document.getElementById("dncity");
+                var no = document.getElementById("n");
+                var table = document.getElementById("tbl");
+                
+
+                var op = document.createElement("td");
+                var op1 = document.createElement("td");
+                var op2 = document.createElement("td");
+                var tr = document.createElement("tr");
+
+                op.innerHTML = t.value;
+                op1.innerHTML = c.value;
+                op2.innerHTML = no.value;
+
+                tr.appendChild(op);
+                tr.appendChild(op1);
+                tr.appendChild(op2);
+                table.appendChild(tr);
+            }
+
+            </script>     
+</body>
+</html>

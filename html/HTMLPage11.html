@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <input type="button" value="add" onclick="addfr();" /> 
+    <script>
+    function chk()
+    {
+    var dv = document.getElementById("errdiv");
+    var t = document.getElementById("txtname");
+    var c1 = document.getElementById("txtno");
+
+
+    dv.innerHTML = " ";
+    var flag = true;
+    if(t.value.trim().length==0)
+    {/* dom manipulation example*/
+    dv.innerHTML += "name cannot be empty";
+    flag = false;
+    }
+    if(c1.value.length!=10)
+    {
+    dv.innerHTML += "length should be valid";
+    flag = false;
+    }
+    if(flag==true)
+    alert("data submitted");
+    return flag;
+
+    }
+    function addfr() {
+        var t = document.getElementById("txtname");
+        var tab = document.getElementById("table");
+        var s = document.getElementById("txtno");
+        var p = document.getElementById("dncity");
+
+        var op = document.createElement("td");
+        var op1 = document.createElement("td");
+        var op2 = document.createElement("td");
+
+        op.innerHTML = t.value;
+        op1.innerHTML = s.value;
+        op2.innerHTML = p.value;
+
+        var tr = document.createElement("tr");
+
+        tr.appendChild(op);
+        tr.appendChild(op1);
+        tr.appendChild(op2);
+        tab.appendChild(tr);
+    }
+    </script>
+    <div id="errdiv" style="color:red;font-weight:bold">
+
+    </div>
+    <form action="" method="post" onsubmit="return chk();">
+        name:<input name="tname " placeholder="enter name" id=txtname /><br />
+        mobile no:<input name="mobile no" placeholder="enter number" id="txtno"/><br/>
+        city:
+        <select id=dncity>
+
+            <option>mumbai</option>
+            <option>pune</option>
+            <option>bangalore</option>
+
+        </select>
+        <table id="table" class="hdtbl" border="1">
+            <tr>
+                <td>
+                    name:
+                </td>
+                <td>
+                    mobile no:
+                </td>
+                <td>
+                    city:
+                </td>
+            </tr>
+            </table>
+
+            <br />
+          
+
+
+
+</form>
+
+</body>
+</html>

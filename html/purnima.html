@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>    
+
+    <form action="process.jsp" method="post" name="myform" onsubmit="return chk();">
+        Enter the Name:<input type="text" id=txtname /><br>
+        Skills:<input type="checkbox" id=hl7 /> HL7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" id=sql />SQL<br>
+        City :
+        <select id="dncity">
+            <option>-----select-----</option>
+            <option>Mumbai</option>
+            <option>Pune</option>
+            <option>Banglore</option>
+        </select><br>
+        <input type="submit" value="Go">
+
+    </form>
+                <script>
+                    
+                   
+                        
+                      
+    
+
+                    function chk()
+                    {
+                        var dv =document.getElementById("errdiv");
+                        var t = document.getElementById("txtname");
+                        var c1 = document.getElementById("hl7");
+                        var c2 = document.getElementById("sql");
+
+                        var d = document.getElementById("dncity");
+                        if (d.value == "")
+                        {
+                            alert("Please select an option!");
+                            return false;
+                        }
+                        
+
+                        dv.innerHTML="";
+                        var flag = true;
+                        if(t.value.trim().length ==0)
+                        {
+                            dv.innerHTML += "<li>Name cannot be empty";
+                            flag = false;
+                        }
+                        
+                        if(c1.checked == false && c2.checked == false)
+                        {
+                            dv.innerHTML += "select atleast one skill";
+                            flag = false;
+                        }
+                        
+
+                        if(flag==true)
+                        alert("Data Submitted !!!");
+                        return flag;
+                    }
+                    $(function () {
+                        $("#myform").validate(
+                          {
+                              rules:
+                              {
+                                  item:
+                                  {
+                                      required: true
+                                  }
+                              }
+                          });
+                    });
+
+                </script>
+
+        <div id="errdiv" style="color:red;font-weight:bold">
+            </div>
+</body>
+</html>
